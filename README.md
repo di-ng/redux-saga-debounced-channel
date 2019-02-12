@@ -3,7 +3,7 @@
 ## Installation & Usage
 
 ```bash
-npm install --save @snapchat/redux-saga-debounced-channel
+npm install --save redux-saga-debounced-channel
 ```
 
 Also install peerDependencies (if not already installed)

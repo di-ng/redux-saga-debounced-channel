@@ -1,0 +1,84 @@
+{
+  "name": "redux-saga-debounced-channel",
+  "version": "1.0.11",
+  "description": "Debounced channel for Redux Saga",
+  "contributors": [
+    "Nicholas Gonzalez <nicky93@gmail.com>",
+    "David Idol <david.idol@gmail.com>"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "config": {
+    "prettier_cmd": "prettier --list-different"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "lint-fix": "tslint -c ./tslint.json --project ./tsconfig.json --fix",
+    "lint": "tslint -c ./tslint.json --project ./tsconfig.json",
+    "precommit": "lint-staged",
+    "prepush": "echo 'Running tslint' && npm run lint && echo 'Running typechecks' && npm run typecheck",
+    "pretty": "$npm_package_config_prettier_cmd --write '{src, test}/**/*.{ts,tsx}' || exit 0",
+    "test": "jest 2>&1",
+    "typecheck": "tsc --noEmit --listFiles false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/di-ng/redux-saga-debounced-channel.git"
+  },
+  "keywords": [
+    "debounce",
+    "channel",
+    "redux",
+    "saga"
+  ],
+  "engines": {
+    "node": ">=6.9.1",
+    "npm": ">=3.0.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/di-ng/redux-saga-debounced-channel/issues"
+  },
+  "lint-staged": {
+    "{src, test}/**/*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "homepage": "https://github.com/di-ng/redux-saga-debounced-channel#readme",
+  "devDependencies": {
+    "@types/jest": "^23.1.1",
+    "@types/node": "^10.3.6",
+    "@types/redux-mock-store": "^1.0.0",
+    "husky": "^0.14.3",
+    "immutable": "^3.8.2",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.0.5",
+    "prettier": "^1.12.1",
+    "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-saga": "^0.16.0",
+    "redux-saga-test-plan": "^3.7.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.12.0",
+    "typescript": "^2.9.2"
+  },
+  "peerDependencies": {
+    "redux-saga": "^0.16.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

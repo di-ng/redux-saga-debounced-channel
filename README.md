@@ -1,4 +1,4 @@
-# @snapchat/redux-saga-debounced-channel
+# redux-saga-debounced-channel
 
 ## Installation & Usage
 

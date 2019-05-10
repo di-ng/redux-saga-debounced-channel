@@ -1,5 +1,7 @@
 # redux-saga-debounced-channel
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/di-ng/redux-saga-debounced-channel.svg)](https://greenkeeper.io/)
+
 A saga to get a debounced value from a channel without cancelling the previous taken item's task. This is useful for when you need to incrementally save progress or updates (e.g. autosave).
 
 ## Installation & Usage

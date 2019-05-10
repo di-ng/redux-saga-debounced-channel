@@ -14,7 +14,7 @@ npm install --save redux-saga
 
 ## Summary
 
-A saga to get a debounced value from a channel without cancelling the previous taken item's task. This is useful for when you need to incrementally save progress or updates (ie autosave).
+A saga to get a debounced value from a channel without cancelling the previous taken item's task. This is useful for when you need to incrementally save progress or updates (e.g. autosave).
 
 ## Usage
 

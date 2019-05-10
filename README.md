@@ -22,11 +22,12 @@ Usage:
 import getDebouncedValueFromChannel from 'redux-saga-debounced-channel';
 import { channel, Channel, SagaIterator } from 'redux-saga';
 
-const saveActionChannel: Channel<Action> = yield call(channel);
-
 function* mySaga(): SagaIterator {
+  // any redux-saga channel can be used
+  const saveActionChannel: Channel<Action> = yield call(channel);
+
   const debouncedSaveAction = yield getDebouncedValueFromChannel(
-    saveActionChannel, // any redux-saga channel can be used
+    saveActionChannel,
     500, // delay in ms
   );
 };

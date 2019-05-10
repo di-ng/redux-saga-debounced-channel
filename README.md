@@ -2,6 +2,8 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/di-ng/redux-saga-debounced-channel.svg)](https://greenkeeper.io/)
 
+A saga to get a debounced value from a channel without cancelling the previous taken item's task. This is useful for when you need to incrementally save progress or updates (e.g. autosave).
+
 ## Installation & Usage
 
 ```bash
@@ -14,9 +16,21 @@ Also install peerDependencies (if not already installed)
 npm install --save redux-saga
 ```
 
-## Summary
+Usage:
 
-A saga to get a debounced value from a channel without cancelling the previous taken item's task. This is useful for when you need to incrementally save progress or updates (e.g. autosave).
+```ts
+import getDebouncedValueFromChannel from 'redux-saga-debounced-channel';
+import { channel, Channel, SagaIterator } from 'redux-saga';
+
+const saveActionChannel: Channel<Action> = yield call(channel);
+
+function* mySaga(): SagaIterator {
+  const debouncedSaveAction = yield getDebouncedValueFromChannel(
+    saveActionChannel, // any redux-saga channel can be used
+    500, // delay in ms
+  );
+};
+```
 
 ## Usage
 

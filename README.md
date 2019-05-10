@@ -1,5 +1,7 @@
 # redux-saga-debounced-channel
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/di-ng/redux-saga-debounced-channel.svg)](https://greenkeeper.io/)
+
 ## Installation & Usage
 
 ```bash

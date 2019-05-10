@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux';
-import { Channel, delay, SagaIterator } from 'redux-saga';
+import { Channel, SagaIterator } from 'redux-saga';
 import { call, race, take } from 'redux-saga/effects';
+import delay from './delay';
 
 export default function* getDebouncedValueFromChannel<T = AnyAction>(
   actionChannel: Channel<T>,

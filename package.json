@@ -1,25 +1,26 @@
 {
   "name": "redux-saga-debounced-channel",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "Debounced channel for Redux Saga",
   "contributors": [
     "Nicholas Gonzalez <nicky93@gmail.com>",
     "David Idol <david.idol@gmail.com>"
   ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "config": {
-    "prettier_cmd": "prettier --list-different"
-  },
+  "main": "dist/index.js",
+  "umd:main": "dist/redux-combine-reducers-immutable.umd.production.js",
+  "module": "dist/redux-combine-reducers-immutable.es.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "compile": "tsc",
-    "lint-fix": "tslint -c ./tslint.json --project ./tsconfig.json --fix",
-    "lint": "tslint -c ./tslint.json --project ./tsconfig.json",
-    "precommit": "lint-staged",
-    "prepush": "echo 'Running tslint' && npm run lint && echo 'Running typechecks' && npm run typecheck",
-    "pretty": "$npm_package_config_prettier_cmd --write '{src, test}/**/*.{ts,tsx}' || exit 0",
-    "test": "jest 2>&1",
-    "typecheck": "tsc --noEmit --listFiles false"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "npm run lint && tsdx test",
+    "prettier": "pretty-quick --staged",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit --listFiles false",
+    "lint": "tslint -c ./tslint.json --project ./tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -39,46 +40,26 @@
   "bugs": {
     "url": "https://github.com/di-ng/redux-saga-debounced-channel/issues"
   },
-  "lint-staged": {
-    "{src, test}/**/*.{ts,tsx}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "homepage": "https://github.com/di-ng/redux-saga-debounced-channel#readme",
   "devDependencies": {
-    "@types/jest": "^23.1.1",
-    "@types/node": "^10.3.6",
-    "@types/redux-mock-store": "^1.0.0",
-    "husky": "^0.14.3",
-    "immutable": "^3.8.2",
-    "jest": "^23.1.0",
-    "lint-staged": "^7.0.5",
-    "prettier": "^1.12.1",
-    "redux": "^4.0.0",
+    "@types/jest": "^24.0.12",
+    "@types/node": "^12.0.0",
+    "@types/redux-mock-store": "^1.0.1",
+    "husky": "^2.2.0",
+    "immutable": "^4.0.0-rc.12",
+    "prettier": "^1.17.0",
+    "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
-    "redux-saga": "^0.16.0",
-    "redux-saga-test-plan": "^3.7.0",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.10.0",
-    "tslint-config-prettier": "^1.12.0",
-    "typescript": "^2.9.2"
+    "redux-saga": "^1.0.2",
+    "redux-saga-test-plan": "^4.0.0-beta.3",
+    "pretty-quick": "^1.10.0",
+    "tsdx": "^0.5.8",
+    "tslib": "^1.9.3",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.5"
   },
   "peerDependencies": {
-    "redux-saga": "^0.16.0"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "redux-saga": ">=0.16.0"
   }
 }

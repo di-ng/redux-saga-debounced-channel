@@ -6,12 +6,12 @@ import createSagaMiddleware, {
   buffers,
   Channel,
   channel,
-  delay,
   SagaMiddleware,
   Task,
 } from 'redux-saga';
 import { testSaga } from 'redux-saga-test-plan';
 import { call, take } from 'redux-saga/effects';
+import delay from '../src/delay';
 import getDebouncedValueFromChannel from '../src/index';
 import { advanceFakeTimersByTime } from './utils';
 
